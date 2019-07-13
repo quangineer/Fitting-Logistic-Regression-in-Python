@@ -17,3 +17,9 @@ df[["no_fraud", "fraud"]] = pd.get_dummies(df["fraud"])
 # drop no_fraud column because of innecessary 
 df = df.drop("no_fraud", axis = 1)
 print (df.head())
+
+# For logistic regression, instead of OLS , we use Logit:
+df['intercept'] = 1
+logit_mod = sm.Logit(df['fraud'], df[['intercept', 'duration']] )
+results = logit_mod.fit()
+print (results.summary())
