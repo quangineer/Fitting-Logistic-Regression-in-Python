@@ -12,7 +12,7 @@ df = pd.read_csv("fraud_dataset.csv")
 # variables (non-numerical) into dummies (0,1)
 
 df[["no_fraud", "fraud"]] = pd.get_dummies(df["fraud"])
-
+print (df.head(10))
 
 # drop no_fraud column because of innecessary 
 df = df.drop("no_fraud", axis = 1)
